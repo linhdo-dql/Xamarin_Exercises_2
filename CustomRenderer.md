@@ -5,8 +5,6 @@
 ### B3. Thêm thuộc tính ExportRenderer vào lớp trình kết xuất tùy chỉnh ở mỗi nền tảng để chỉ định rằng nó sẽ được sử dụng để hiển thị điều khiển Xamarin.Forms.
 ## Một số custom trong Demo này:
 > Entry
- 
-> ContentPage
 
 > Button
 
