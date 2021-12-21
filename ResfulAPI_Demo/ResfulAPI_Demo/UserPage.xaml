@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ResfulAPI_Demo.UserPage">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <StackLayout
+                    Padding="10"
+                    x:Name="Main"
+                    BindingContext="{Binding UserPost}">
+                    <Label Text="{Binding Id, StringFormat='USER #{0}'}"
+                           VerticalOptions="Start"  
+                           FontSize="Title"
+                           FontAttributes="Bold"
+                           HorizontalOptions="CenterAndExpand" />
+                    <Label Text="{Binding UserName, StringFormat='Username: {0}'}"
+                           FontSize="Subtitle"
+                           FontAttributes="Bold"/>
+                    <Label Text="{Binding Name, StringFormat='FullName: {0}'}"
+                           FontSize="Subtitle"
+                           FontAttributes="Bold"/>
+                    <Label Text="{Binding Email, StringFormat='Email: {0}'}"
+                           FontSize="Subtitle"
+                           FontAttributes="Bold"/>
+                    <Label Text="{Binding Website, StringFormat='Website: {0}'}"
+                           FontSize="Subtitle"
+                           FontAttributes="Bold"/>
+                    <Label Text="{Binding Phone, StringFormat='Phone: {0}'}"
+                           FontSize="Subtitle"
+                           FontAttributes="Bold"/>
+                    <Label Text="Address: "
+                           FontSize="Subtitle"
+                           FontAttributes="Bold"/>
+                    <StackLayout Margin="20,5">
+                        <Label Text="{Binding Address.Street, StringFormat='Street: {0}'}"/>
+                        <Label Text="{Binding Address.City, StringFormat='City: {0}'}"/>
+                        <Label Text="{Binding Address.Street, StringFormat='Street: {0}'}"/>
+                        <Label Text="{Binding Address.ZipCode, StringFormat='ZipCode: {0}'}"/>
+                        <Label Text="{Binding Address.Suite, StringFormat='Suite: {0}'}"/>
+                        <Label Text="Geo"/>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="{Binding Address.Geo.Lat, StringFormat='Lat: {0}'}"/>
+                            <Label Text="{Binding Address.Geo.Lng, StringFormat='Lng: {0}'}"/>
+                        </StackLayout>
+                    </StackLayout>
+                    <Label Text="Company: "
+                           FontSize="Subtitle"
+                           FontAttributes="Bold"/>
+                    <StackLayout Margin="20,5">
+                        <Label Text="{Binding Company.Name, StringFormat='Name: {0}'}"/>
+                        <Label Text="{Binding Company.CatchPhrase, StringFormat='CatchPhrase: {0}'}"/>
+                        <Label Text="{Binding Company.Bs, StringFormat='Bs: {0}'}"/>
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout Padding="10">
+                    <Label Text="Todos: "
+                           FontSize="Subtitle"
+                           FontAttributes="Bold"/>
+                    <ListView ItemsSource="{Binding Todos}"
+                              SelectionMode="None">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout Orientation="Horizontal">
+                                        <CheckBox IsEnabled="False" IsChecked="{Binding Completed}"></CheckBox>
+                                        <Label Text="{Binding Title}" TextColor="{Binding ColorTitle}" VerticalOptions="Center"/>
+                                    </StackLayout> 
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+                <StackLayout Padding="10">
+                    <Label Text="Albums: "
+                           FontSize="Subtitle"
+                           FontAttributes="Bold"/>
+                    <ListView ItemsSource="{Binding Albums}"
+                              SelectionMode="None">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="{Binding Id, StringFormat='Album #{0}'}" VerticalOptions="Center" FontAttributes="Bold"/>
+                                        <Label Text="{Binding Title}" VerticalOptions="Center"/>
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+            </StackLayout>
+            
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

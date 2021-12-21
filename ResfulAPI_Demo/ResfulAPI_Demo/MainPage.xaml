@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ResfulAPI_Demo.MainPage"
+             NavigationPage.HasBackButton="True">
+    
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Upload Post" Command="{Binding Upload}"/>
+    </ContentPage.ToolbarItems>
+    <StackLayout>
+        <ListView x:Name="listAllPost"
+                  ItemsSource="{Binding Posts}"
+                  RowHeight="250">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout
+                            x:Name="Post"
+                            Padding="10,10,10,10">
+                            <Label Text="{Binding Id, StringFormat='POST #{0}'}"
+                                   FontAttributes="Bold"
+                                   FontSize="Large"/>
+                            <Label Text="{Binding Title}"
+                                   FontSize="Title"
+                                   MaxLines="2"/>
+                            <Label Text="{Binding Body}"
+                                   HorizontalOptions="Fill"
+                                   HorizontalTextAlignment="Start"
+                                   VerticalTextAlignment="Center"
+                                   LineBreakMode="WordWrap"
+                                   VerticalOptions="StartAndExpand"
+                                   FontSize="Subtitle"/>
+                            <Label Text="{Binding NameUser, StringFormat='Người đăng: {0}'}"
+                                   HorizontalOptions="EndAndExpand"
+                                   FontSize="Caption"
+                                   VerticalOptions="End"
+                                   FontAttributes="Italic"/>
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding BindingContext.PostTabbed, Source={x:Reference listAllPost}}" CommandParameter="{Binding Source={x:Reference Post}, Path=BindingContext}"/>
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+
+</ContentPage>

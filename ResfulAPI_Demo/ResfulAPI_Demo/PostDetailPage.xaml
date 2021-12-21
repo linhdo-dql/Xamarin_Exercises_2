@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ResfulAPI_Demo.PostDetailPage">
+    <ContentPage.Content>
+        <StackLayout Padding="10"
+                     x:Name="Main">
+            <StackLayout BindingContext="{Binding Post}">
+                <Label Text="{Binding Id, StringFormat='POST #{0}'}"
+                                   FontAttributes="Bold"
+                                   FontSize="Large"/>
+
+                <Label Text="{Binding Title}"
+                                   FontSize="Title"
+                                   MaxLines="2"/>
+                <Label Text="{Binding Body}"
+                                   HorizontalOptions="Fill"
+                                   HorizontalTextAlignment="Start"
+                                   VerticalTextAlignment="Center"
+                                   LineBreakMode="WordWrap"
+                                   VerticalOptions="StartAndExpand"
+                                   FontSize="Subtitle"/>
+                <Label Text="{Binding NameUser, StringFormat='Người đăng: {0}'}"
+                                   HorizontalOptions="EndAndExpand"
+                                   FontSize="Caption"
+                                   VerticalOptions="End"
+                                   FontAttributes="Italic" >
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding BindingContext.UserAnswer, Source={x:Reference Main}}"/>
+                    </Label.GestureRecognizers>
+                </Label>
+                       
+            </StackLayout>
+            <Label Text="COMMENTS" FontAttributes="Bold"
+                                   FontSize="Large"/>
+            <ListView ItemsSource="{Binding Comments}"
+                      RowHeight="200">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout
+                                Padding="0,10,0,10">
+                                <Label Text="{Binding Id, StringFormat='Comment #{0}'}"
+                                   FontAttributes="Bold"
+                                   FontSize="Medium"/>
+
+                                <Label Text="{Binding Name}"
+                                   FontSize="Subtitle"
+                                   MaxLines="2"/>
+                                <Label Text="{Binding Body}"
+                                   HorizontalOptions="Fill"
+                                   HorizontalTextAlignment="Start"
+                                   VerticalTextAlignment="Center"
+                                   LineBreakMode="WordWrap"
+                                   VerticalOptions="StartAndExpand"
+                                   FontSize="Small"/>
+                                <Label Text="{Binding Email, StringFormat='Trả lời bởi: {0}'}"
+                                   HorizontalOptions="EndAndExpand"
+                                   FontSize="Caption"
+                                   VerticalOptions="End"
+                                   FontAttributes="Italic">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding BindingContext.UserAnswer, Source={x:Reference Main}}"/>
+                                    </Label.GestureRecognizers>
+                                </Label>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
