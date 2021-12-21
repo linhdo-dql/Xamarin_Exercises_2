@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Gesture.MainPage"
+             xmlns:local="clr-namespace:Gesture">
+
+    <StackLayout>
+
+        <Label 
+            x:Name="lblOneTap"
+            Text="Tap here!" FontSize="Title" Padding="30,10,30,10">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OneTap_Gesture" />
+                <DragGestureRecognizer CanDrag="True"
+                                       DragStarting="DragGestureRecognizer_DragStarting"/>
+            </Label.GestureRecognizers>
+        </Label>
+        <Label 
+             Text="Tap here!" FontSize="Title" Padding="30,10,30,10">
+            <Label.GestureRecognizers>
+                
+                <DragGestureRecognizer CanDrag="True"
+                                       DragStarting="DragGestureRecognizer_DragStarting"/>
+            </Label.GestureRecognizers>
+        </Label>
+        <local:PinchToZoomContainer>
+            <local:PinchToZoomContainer.Content>
+                <Image Source="iphone_13_2021.png" />
+            </local:PinchToZoomContainer.Content>
+        </local:PinchToZoomContainer>
+        <Frame HeightRequest="30" 
+               Margin="20">
+            <Frame.GestureRecognizers>
+                <DropGestureRecognizer AllowDrop="True" Drop="DropGestureRecognizer_Drop"/>
+            </Frame.GestureRecognizers>
+        </Frame>
+    </StackLayout>
+
+</ContentPage>
