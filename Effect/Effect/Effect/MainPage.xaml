@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Effect.MainPage"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:local="clr-namespace:Effect"
+             BackgroundColor ="CornflowerBlue"
+             >
+    
+    <StackLayout>
+        <ScrollView Orientation="Both">
+       
+            <StackLayout>
+
+
+                <Entry Text="Effect attached to an Entry"
+               TextColor="Yellow">
+                    <Entry.Effects>
+                        <local:FocusEffect/>
+                    </Entry.Effects>
+                </Entry>
+                <Label Text="Hello" FontSize="150" TextColor="Red" HorizontalOptions="Center">
+                    <Label.Effects>
+                        <local:ShadowEffect Color="Yellow" Radius="25" DistanceX="25" DistanceY="11"/>
+                    </Label.Effects>
+                </Label>
+                <Image Source="NetMaui.png"
+               x:Name="Image">
+                    <Image.Effects>
+                        <local:RoundEffect/>
+                    </Image.Effects>
+                </Image>
+                <Button Clicked="Button_Clicked"></Button>
+            </StackLayout>
+        </ScrollView>
+    </StackLayout>
+   
+</ContentPage>
