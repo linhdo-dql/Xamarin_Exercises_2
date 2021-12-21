@@ -1,0 +1,14 @@
+adaptive-icon;obj\Debug\120\res\mipmap-anydpi-v26\icon.xml
+adaptive-icon;obj\Debug\120\res\mipmap-anydpi-v26\icon_round.xml
+androidx.cardview.widget.CardView;obj\Debug\120\res\layout\button.xml
+background;obj\Debug\120\res\mipmap-anydpi-v26\icon.xml
+background;obj\Debug\120\res\mipmap-anydpi-v26\icon_round.xml
+color;obj\Debug\120\res\values\colors.xml
+foreground;obj\Debug\120\res\mipmap-anydpi-v26\icon.xml
+foreground;obj\Debug\120\res\mipmap-anydpi-v26\icon_round.xml
+ImageView;obj\Debug\120\res\layout\button.xml
+LinearLayout;obj\Debug\120\res\layout\button.xml
+resources;obj\Debug\120\res\values\colors.xml
+resources;obj\Debug\120\res\values\styles.xml
+style;obj\Debug\120\res\values\styles.xml
+TextView;obj\Debug\120\res\layout\button.xml

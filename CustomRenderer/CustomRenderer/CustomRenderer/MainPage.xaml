@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CustomRenderer.MainPage"
+             xmlns:local ="clr-namespace:CustomRenderer.CustomRendererClass"
+             xmlns:viewModel="clr-namespace:CustomRenderer.ViewModels"
+             >
+ 
+    <StackLayout Padding="20">
+        <Label Text="Custom Entry"/>
+        <local:CustomEntry x:Name="MyEntry" Text="{Binding EntryText}" BorderColor ="CornflowerBlue" BorderWidth="2" CornerRadius="10"  ClearButtonVisibility="WhileEditing"/>
+        <local:CustomButton  CornerRadius="20" BorderColor="Red" Text="Đăng nhập" TextColor="White" IsEnabled="{Binding IsEnableButton}"/>
+        <local:CustomMap x:Name="MyMap" MapType="Street" />
+    </StackLayout>
+
+</ContentPage>
