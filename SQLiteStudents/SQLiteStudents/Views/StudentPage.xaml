@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SQliteDemo.Views.StudentPage"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <StackLayout
+            Padding="10">
+            <Label Text="Thông tin học sinh"
+                VerticalOptions="Start"
+                   FontSize="Title"
+                   Margin="0,30,0,0"
+                HorizontalOptions="CenterAndExpand" />
+            <Label Text="Tên: "/>
+            <Entry Text="{Binding NameStudent, Mode=TwoWay}"/>
+            <Label Text="Lớp: "/>
+            <Entry Text="{Binding ClassStudent, Mode=TwoWay}"/>
+            <Label Text="Ngày sinh: "/>
+            <DatePicker Date="{Binding DateOfBirthStudent, Mode=TwoWay}" MinimumDate="01/01/1995"/>
+            <Button Text="Đồng ý" Command="{Binding InsertOrUpdate}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

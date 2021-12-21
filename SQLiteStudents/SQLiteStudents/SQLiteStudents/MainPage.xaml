@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SQLiteStudents.MainPage"
+             NavigationPage.HasBackButton="False">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Thêm" Command="{Binding Add}"/>
+    </ContentPage.ToolbarItems>
+    <StackLayout>
+        <ListView x:Name="listAllStudents"
+                  ItemsSource="{Binding Students}"
+                  RowHeight="80" 
+                  CachingStrategy="RecycleElement">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <SwipeView x:Name="Student">
+                            <SwipeView.RightItems>
+                                <SwipeItems>
+                                    <SwipeItem Text="Xóa" BackgroundColor="IndianRed" Command="{Binding BindingContext.Delete, 
+                                               Source={x:Reference listAllStudents}}" 
+                                               CommandParameter="{Binding Source={x:Reference Student}, Path=BindingContext}"/>
+                                    <SwipeItem Text="Sửa" BackgroundColor="CornflowerBlue" Command="{Binding BindingContext.Update, 
+                                               Source={x:Reference listAllStudents}}" 
+                                               CommandParameter="{Binding Source={x:Reference Student}, Path=BindingContext}"/>
+                                </SwipeItems>
+                            </SwipeView.RightItems>
+                            <SwipeView.Content>
+                                <Grid RowDefinitions="*,*"
+                                      ColumnDefinitions="0.5*, *"
+                                      Padding="10">
+                                    <Label Grid.Row="0" Grid.Column="0" Text="{Binding Id, StringFormat='Id: {0}'}" TextColor="Green"/>
+                                    <Label Grid.Row="1" Grid.Column="0" Text="{Binding Class, StringFormat='Lớp: {0}'}" TextColor="Purple"/>
+                                    <Label Grid.Row="0" Grid.Column="1" Text="{Binding Name, StringFormat='Tên: {0}'}" TextColor="Red"/>
+                                    <Label Grid.Row="1" Grid.Column="1" Text="{Binding Date, StringFormat='Ngày sinh: {0:dd/MM/yyyy}'}" TextColor="Blue"/>
+                                </Grid>
+                            </SwipeView.Content>
+                        </SwipeView>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+
+</ContentPage>
